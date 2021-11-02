@@ -1,26 +1,19 @@
+
+const inputs = process.argv.slice(2);
+let numbers = inputs.filter(Number); // only use Numbers
  
-// timer1
 
-setTimeout(() => {
-  process.stdout.write('\x07');
-}, 3000);
+const timer = function() {
+  for (const num of numbers) {
+    if(num > 0){ // numbers has to be greater than 0
+    setTimeout(() => {
+      console.log('beep'); // beep to have visual 
+      return process.stdout.write('\x07'); // sound
+    }, num * 1000);
+  }
+}
 
+};
 
-setTimeout(() => {
-  process.stdout.write('\x07');
-}, 5000);
-
-
-setTimeout(() => {
-  process.stdout.write('\x07');
-}, 9000);
-
-
-setTimeout(() => {
-  process.stdout.write('\x07');
-}, 10000);
-
-
-setTimeout(() => {
-  process.stdout.write('\x07');
-}, 15000);
+timer(numbers);
+    
